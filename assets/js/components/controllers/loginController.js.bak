@@ -1,0 +1,29 @@
+'use strict';
+  
+angular.module('Authentication').controller('LoginController', function ($scope, $rootScope, $location, $window, AuthenticationService) {
+
+        // http://jasonwatmore.com
+
+        AuthenticationService.ClearCredentials();
+        $scope.error='';
+
+        $scope.login = function () {
+
+            AuthenticationService.Login($scope.username, $scope.password, function(response) {
+
+                if(response.success) {
+
+                    AuthenticationService.SetCredentials($scope.username, $scope.password);
+                    $location.path('/viewUsers');
+
+                } else {
+
+                    $scope.error = response.message;
+
+                }
+
+            });
+
+        };
+
+});

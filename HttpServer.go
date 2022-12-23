@@ -12,7 +12,7 @@ import (
     "log"
     "time"
     "os"
-    "io/ioutil"
+//    "io/ioutil"
     "net/http"
     "encoding/json"
     "gopkg.in/mgo.v2"
@@ -26,6 +26,7 @@ type Profile struct {
 	Username 	string	       `bson: "username"`
 	Password 	string	       `bson: "password"`
 	Database 	string	       `bson: "database"`
+	Vendor 	        string	       `bson: "vendor"`
 	LastUpdated     string         `bson: "lastupdated"`
 }
 
@@ -33,6 +34,8 @@ type Database struct {
         Id              bson.ObjectId  `bson:"_id,omitempty"`
 	Database 	string	       `bson: "database"`
 	Enviroment      string         `bson: "enviroment"`
+	Vendor          string         `bson: "vendor"`
+	Hostname        string         `bson: "hostname"`
 }
 
 
@@ -417,7 +420,7 @@ func ProfileHandler(response http.ResponseWriter, request *http.Request){
 
           }
 
-	  r :=UpdateProfile(p)
+	  r := UpdateProfile(p)
           if !r {
 
                 log.Println("Error updating profile")
@@ -576,6 +579,7 @@ func DatabaseHandler(response http.ResponseWriter, request *http.Request){
 
 }
 
+/*
 func LoginHandler(response http.ResponseWriter, request *http.Request){
 
     response.Header().Set("Content-type", "text/html")
@@ -585,7 +589,7 @@ func LoginHandler(response http.ResponseWriter, request *http.Request){
         os.Exit(1)
     }  
 
-    webpage, err := ioutil.ReadFile(WEB_ROOT + "/login.html")
+    webpage, err := ioutil.ReadFile(WEB_ROOT + "/index.html")
     if err != nil {
          http.Error(response, fmt.Sprintf("login.html file error %v", err), 500)
     }
@@ -593,6 +597,7 @@ func LoginHandler(response http.ResponseWriter, request *http.Request){
     fmt.Fprint(response, string(webpage));
 
 }
+*/
 
 func main() {
 
@@ -610,7 +615,7 @@ func main() {
      fs := http.FileServer(http.Dir(WEB_ROOT))
      mx := mux.NewRouter()
 
-     mx.Handle("/login", http.HandlerFunc( LoginHandler ))
+//     mx.Handle("/login", http.HandlerFunc( LoginHandler ))
      mx.Handle("/profiles", http.HandlerFunc( ProfilesHandler ))
      mx.Handle("/profiles/{id}", http.HandlerFunc( ProfileHandler ))
      mx.Handle("/databases", http.HandlerFunc( DatabasesHandler ))

@@ -1,0 +1,48 @@
+<div  class="container" ng-controller="UserDetailController">
+<xalert class="col-xs-12 col-sm-9 col-lg-10" ng-if="xAlert.visibility" xalert-type="{{xAlert.alertClass}}" close="toggleAlert(false)" xalert-content="{{xAlert.alertMessage}}"></xalert>
+<div class="col-xs-12 col-sm-9 col-lg-10">
+ <form>
+
+ <div class="row">
+
+ <div class="col-sm-4">
+
+   <div class="form-group">
+        
+	 <label>Name</label>
+         <p class="form-control-static" editable="user.Username"></p>
+
+   </div>
+
+ </div>
+
+ <div class="col-sm-4">
+ 
+	
+        <div class="form-group">
+
+	    <label>Password</label>
+            <p class="form-control-static" editable="user.Password" field-type="password"></p>
+
+        </div>
+
+ </div>
+
+<div class="col-sm-4">
+
+        <div class="form-group">
+
+	    <label>Database</label>
+            <p class="form-control-static" editable="user.Database"></p>
+
+        </div>
+
+</div>
+
+ </div>
+
+</form>
+
+       
+</div>
+</div>

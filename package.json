@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A simple password manager in AngularJS + Bootstrap",
   "dependencies": {
+    "angular-animate": "^1.5.7",
+    "angular-aria": "^1.5.7",
+    "angular-material": "^1.1.0-rc.5",
+    "angular-screenfull": "^0.1.0",
     "clipboard": "^1.5.10",
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.0",

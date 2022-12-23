@@ -1,40 +1,169 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="profileApp" ng-controller="appController">
+
+<html lang="en" id="pwdAppCtrl" ng-app="profileApp" ng-controller="appController">
 <head>
 
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="X-UA-Compatible" content="IE=10">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=10">
 
-  <script type="text/javascript" src="assets/vendor/jquery-1.12.0.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/angular.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/angular-animate.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/angular-strap.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/angular-strap.tpl.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/angular-route.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/angular-resource.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/angular-sanitize.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/clipboard.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/ngclipboard.min.js"></script>
-  <script type="text/javascript" src="assets/vendor/dirPagination.js"></script>
-  <script type="text/javascript" src="assets/js/build/PasswordManager.js"></script>
+<script type="text/javascript" src="assets/vendor/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="assets/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular-animate.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular-strap.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular-strap.tpl.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular-route.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular-resource.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="assets/vendor/angular-cookies.min.js"></script>
+<script type="text/javascript" src="assets/vendor/clipboard.min.js"></script>
+<script type="text/javascript" src="assets/vendor/ngclipboard.min.js"></script>
+<script type="text/javascript" src="assets/vendor/dirPagination.js"></script>
+<script type="text/javascript" src="assets/vendor/screenfull.min.js"></script>
+<script type="text/javascript" src="assets/js/build/PasswordManager.js"></script>
 
 
-  <title>Password</title>
-  <link rel="stylesheet" href="assets/css/bootstrap.css">
-  <link rel="stylesheet" href="assets/css/dataTables.bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/angular-motion.min.css">
-  <!--[if lt IE 9]>
-  <script type="text/javascript" src="assets/vendor/html5shiv.js"></script>
-  <script type="text/javascript" src="assets/vendor/respond.min.js"></script>
-  <![endif]-->
-  <style type="text/css">
-	[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	  display: none !important;
-	}
- </style>
+<title>Password</title>
+<link rel="stylesheet" href="assets/css/bootstrap.css">
+<link rel="stylesheet" href="assets/css/angular-motion.min.css">
+<link rel="stylesheet" href="assets/css/font-mfizz.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="assets/vendor/html5shiv.js"></script>
+<script type="text/javascript" src="assets/vendor/respond.min.js"></script>
+<![endif]-->
+
+<style type="text/css">
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+
+  display: none !important;
+
+}
+
+.fa-hide {
+
+visibility:hidden;
+
+}
+
+.hoverClass {
+
+   text-decoration: none;
+    color: #555;
+    background-color: #f5f5f5;
+}
+
+.border-radius-db {
+    
+  border-right: 0px;
+  border-radius: 4px 0px 0px 4px;    
+
+}
+
+.border-radius-icon {
+    
+  border-left: 0px;
+  border-radius: 4px 0px 0px 4px;    
+
+}
+
+.scroll-group {
+    
+    overflow-y:auto;  
+    overflow-x:hidden;  
+
+}
+
+
+@media only screen and (min-width: 768px) {
+.scroll-group {
+    
+    height:650px;	
+    max-height:850px;	
+    overflow-y:auto;  
+    overflow-x:hidden;  
+
+}
+}
+
+.my-form-control {
+	border-style: solid;
+	border-width:0px 0px 2px 0px;
+	border-color: #337ab7;
+        border-radius: 1px;
+}
+
+.my-panel-control {
+	border-style: solid;
+	border-width:0px 0px 2px 0px;
+	border-color: #337ab7;
+        border-radius: 1px;
+}
+
+.list-group-submenu {
+
+   margin-left:0px;
+
+}
+
+.font-title {
+	
+	font: bold 12px/30px Georgia, serif;
+}
+
+.indicator {
+
+	font-family: "Glyphicons Halflings";
+	color: grey;
+
+}
+
+.panel-border {
+
+  border-radius: 5px
+
+}
+
+html {
+	
+    min-height:100%;
+    position:relative;
+	
+}
+
+
+html,body{
+
+    margin:0;
+    padding:0;
+
+}
+
+.body-content{
+	
+     margin-bottom:40px;
+
+} 
+
+.body-footer{
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:40px;
+    padding:10px;
+    background:#f9f9f9;
+
+}
+
+</style>
 
 
 </head>
@@ -42,57 +171,156 @@
 <body>
 
 <nav class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-toggle">
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-toggle">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
 </button>
-      <a class="navbar-brand" style="color:#475785" javascript=":;">Password Manager</a>
-    </div>
-  <div class="collapse navbar-collapse" id="nav-toggle">
-    <ul class="nav navbar-nav">
-      <li><a ng-class="pageClass('/viewUsers')" href="#viewUsers"><span class="glyphicon glyphicon-home"></span></a></li>
-      <li><a ng-class="pageClass('/addUsers')" href="#addUser"><span class="glyphicon glyphicon-plus"></span></a></li> 
-    </ul>
- <form class="navbar-form navbar-left" role="search">
-  <input type="text" class="form form-control" style="border-radius:0" ng-keyup="startSearch()" placeholder="Search username" ng-model="searchName">
-  <button class="btn btn-success hidden-xs" style="margin-left:-4px; border-radius:0" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-</form>
+<a class="navbar-brand" style="color:#475785" javascript=":;">Password Manager</a>
+</div>
+<div class="collapse navbar-collapse" id="nav-toggle">
+<ul class="nav navbar-nav">
+<li>
+<a ng-class="pageClass('/viewUsers')" href="#viewUsers" data-toggle="tooltip" data-placement="bottom" title="Home">
+<span class="glyphicon glyphicon-home"></span>&nbsp;Home</a>
+</li>
+<li>
+<a ng-class="pageClass('/addUser')"  href="#addUser" data-toggle="tooltip" data-placement="bottom" title="Create&nbsp;New&nbsp;User">
+<span class="glyphicon glyphicon-user"></span>&nbsp;Add user</a>
+</li> 
+<li>
+<a data-toggle="tooltip" ng-class="pageClass('/addDatabase')" href="#addDatabase" data-placement="bottom" title="Create&nbsp;New&nbsp;Database">
+<span class="fa fa-database"></span>&nbsp;Add Database</a>
+</li> 
+</ul>
+
+
 <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-off"></span></a></li>
-        </ul>
+    <li><a href="#">
+        Sign out
+	<i class="fa fa-sign-out" aria-hidden="true"></i>
+     </a></li>
+</ul>
+
 </div>
 </nav>
+
 <div class="clearfix"></div>
 <div class="container-fluid container-fullscreen">
+<div class="body-content">
+
+
 
 <div class="row full-height">
 
-<div class="col-xs-12 col-sm-3 col-lg-2 panel-group" id="enviroments">
+<div class="pans-content">
 
-    <div ng-repeat="z in databases | unique:'Enviroment'" class="panel panel-primary">
+<div id="Oracle" ng-class="'pans' + (getActivePane()==='Oracle'?' active':'')"> 
 
-        <div class="panel-heading">
+<div ng-if="activePane=='Oracle'" class="scroll-group col-xs-12 col-sm-3 col-lg-2 panel-group" id="ORAEnviroments">
 
-           <h4 class="panel-title">
-                <a href="javascript:;" data-toggle="collapse" data-parent="#enviroments" data-target="#{{z.Enviroment}}">{{z.Enviroment}}</a>
-           </h4>
+<div ng-repeat="z in databases | unique:'Enviroment'" class="panel panel-default my-panel-control">
 
-        </div>
+<div class="panel-heading panel-border">
 
-        <div id="{{z.Enviroment}}" ng-class="z.Enviroment=='PRODUCTION'?'panel-collapse in':'panel-collapse collapse'">
+   <h4 class="panel-title">
+       <i class="fa fa-plus-circle" aria-hidden="true">&nbsp;&nbsp;</i> 
+       <a href="javascript:;" class="accordion-toggle panel-primary" data-toggle="collapse" data-parent="#ORAEnviroments" data-target="#ORAEnv_{{z.Enviroment}}">{{z.Enviroment}}</a>
+   </h4>
 
-         <div class="panel-body">
-           <ul class="nav nav-pills nav-stacked">
-                <li ng-repeat="y in databases | filter:{'Enviroment':z.Enviroment}"><a href="javascript:;" ng-click="selectDatabase(y.Database)">{{y.Database}}</a></li>
-	 </ul>
+</div>
 
-                </div>
+<div id="ORAEnv_{{z.Enviroment}}" ng-class="'panel-collapse collapse'">
 
-        </div>
+ <div class="panel-body">
 
-   </div>
+   <ul class="list-group panel">
+
+	<a href="javascript:;" ng-click="selectItem(y.Database)" class="list-group-item" ng-repeat="y in databases | orderBy:sortKey | filter:{'Enviroment':z.Enviroment,'Vendor':'Oracle'}">
+
+            <i class="fa fa-database text-primary" aria-hidden="true">&nbsp;{{y.Database}}</i>
+           </a>
+<!--           <a href="javascript:;" style="float:right"><i class="fa fa-hide fa-times text-danger" aria-hidden="true"></i></a> -->
+
+
+   </ul>
+
+ </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div> 
+
+<div id="SQLServer" ng-class="'pans' + (getActivePane()==='SQL Server'?' active':'')"> 
+
+<div ng-if="activePane=='SQL Server'" class="scroll-group col-xs-12 col-sm-3 col-lg-2 panel-group" id="SQLEnviroments">
+
+<div ng-repeat="z in databases | unique:'Enviroment'" class="panel-border panel panel-default my-panel-control">
+
+<div class="panel-heading panel-border">
+
+   <h4 class="panel-title">
+       <i class="fa fa-plus-circle" aria-hidden="true">&nbsp;&nbsp;</i> 
+       <a href="javascript:;" class="accordion-toggle" data-toggle="collapse" data-parent="#SQLEnviroments" data-target="#SQLEnv_{{z.Enviroment}}">{{z.Enviroment}}</a>
+   </h4>
+
+</div>
+
+<div id="SQLEnv_{{z.Enviroment}}" ng-class="'panel-collapse collapse'">
+
+ <div class="panel-body">
+ 
+ <div class="list-group panel" id="SQLEnv_{{z.Enviroment}}_{{$index}}">
+  
+   <div ng-repeat="y in databases | filter:{'Enviroment':z.Enviroment,'Vendor':'SQL Server'} | unique:'Hostname'"> 
+
+     <a href="javascript:;" class="list-group-item submenu" data-toggle="collapse" data-target="#SubMenu_{{y.Hostname}}" data-parent="#SQLEnv_{{z.Enviroment}}_{{$index}}">
+     <i href="javascript:;" class="fa fa-caret-right" aria-hidden="true">&nbsp;</i>
+     <i href="javascript:;" class="fa fa-server" aria-hidden="true">&nbsp;</i>
+	{{y.Hostname}}
+     </a>
+
+	<div class="collapse list-group-submenu" id="SubMenu_{{y.Hostname}}">
+         <a data-parent="#SubMenu_{{y.Hostname}}" ng-repeat="m in databases | orderBy:sortKey | filter:{'Enviroment':z.Enviroment,'Vendor':'SQL Server','Hostname':y.Hostname}" class="list-group-item" href="javascript:;" ng-click="selectItem(m.Database)">
+           <i class="fa fa-database text-primary" aria-hidden="true">&nbsp;{{m.Database}}</i>
+         </a>
+
+<!--
+         <a href="javascript:;" style="float:right">
+	   <i class="fa fa-hide fa-times text-danger" aria-hidden="true"></i>
+	 </a>
+-->
+
+
+    </div>
+    </div>
+
+
+ </div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div> 
+
+<div id="Unix" ng-class="'pans' + (getActivePane()==='Unix'?' active':'')"> 
+
+<div ng-if="activePane=='Unix'" class="col-xs-12 col-sm-3 col-lg-2 panel-group">
+
+
+</div>
+
+
+</div> 
 
 </div>
 
@@ -100,5 +328,65 @@
 
 </div>
 </div>
+</div>
+
+<div class="body-footer text-center">
+Copyright &copy; 2016 G.Iapoce - Fujitsu
+</div>
+
+<script>
+
+
+    $(document).ready( function()  {
+
+
+      var angPwdApp=angular.element('#pwdAppCtrl').scope();
+      angPwdApp.setPane('Oracle');
+
+      $('[data-toggle="tooltip"]').tooltip(); 
+
+
+    });
+
+    $("div.pans-content").on("show.bs.collapse hide.bs.collapse","div.panel-group",function(e) {
+	$(e.target).prev('.panel-heading').find("i.fa").toggleClass('fa-minus-circle fa-plus-circle');
+    });
+
+
+    $("#SQLServer").on("click", ".list-group-item.submenu", function(e) {
+
+
+        e.stopPropagation();
+
+        tgt=$(e.target);
+        tgtPanel=tgt.attr('data-target');
+
+
+        activeTarget=$(".list-group-submenu:visible").not($(tgtPanel));
+        $(activeTarget).prev("a.list-group-item").find("i.fa").toggleClass("fa-caret-right fa-caret-down");
+	$(activeTarget).slideUp();
+
+
+        tgt.find("i.fa").toggleClass("fa-caret-right fa-caret-down");
+        $(tgtPanel).slideToggle();
+
+
+
+    });
+
+
+    $('[data-toggle="tooltip"]').click( function()  {
+
+       $('.tooltip').fadeOut('fast', function()  {
+          $('.tooltip').remove();
+       });
+
+    });
+
+
+
+</script>
+
+
 </body>
 </html>
